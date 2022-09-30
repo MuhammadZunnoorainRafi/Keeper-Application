@@ -8,12 +8,11 @@ html {
 }
 body {
   background: #eee;
-  padding: 0 16px;
 }
 
 header {
   background-color: #f5ba13;
-  margin: auto -16px;
+
   padding: 16px 32px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
 }
@@ -111,4 +110,22 @@ form button {
 form button:hover {
   background-color: black;
   color: #fff;
+}
+
+@media (max-width: 562px) {
+  header {
+    margin: auto 0px;
+    padding: 6px 12px;
+    width: 100%;
+  }
+
+  form {
+    width: 250px;
+    margin: 10px 10px;
+    padding: 10px;
+  }
+
+  footer {
+    display: none;
+  }
 }
