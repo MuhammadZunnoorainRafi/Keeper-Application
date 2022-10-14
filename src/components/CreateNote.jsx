@@ -10,6 +10,7 @@ function CreateNote() {
     title: '',
     content: '',
   });
+  const [message, setMessage] = useState('');
 
   useEffect(() => {
     if (keeperEdit.edit === true) {
@@ -23,6 +24,10 @@ function CreateNote() {
       return { ...prevValue, [name]: value };
     });
   }
+
+  setTimeout(() => {
+    setMessage(null);
+  }, 3000);
 
   return (
     <div>
@@ -43,21 +48,26 @@ function CreateNote() {
         <button
           onClick={(e) => {
             e.preventDefault();
-
-            if (keeperEdit.edit === true) {
-              updateItems(keeperEdit.id, areaText);
+            if ((areaText.title || areaText.content) === '') {
+              setMessage('Please Enter Something');
             } else {
-              addItems(areaText);
+              setMessage(null);
+              if (keeperEdit.edit === true) {
+                updateItems(keeperEdit.id, areaText);
+              } else {
+                addItems(areaText);
+              }
+              setAreaText({
+                title: '',
+                content: '',
+              });
             }
-            setAreaText({
-              title: '',
-              content: '',
-            });
           }}
         >
           <IoIosAdd size={30} />
         </button>
       </form>
+      {message && <div className="message">{message}</div>}
     </div>
   );
 }

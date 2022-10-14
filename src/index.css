@@ -72,6 +72,12 @@ footer p {
   color: red;
 }
 
+.message {
+  padding-top: 10px;
+  text-align: center;
+  color: red;
+}
+
 form {
   position: relative;
   width: 480px;
